@@ -29,8 +29,7 @@ type Address struct {
 
 func main() {
 
-
-	setProdName:
+setProdName:
 	product := Product{}
 	fmt.Print("Enter the product name: ")
 	fmt.Scanf("%s\n", &product.ProductName)
@@ -45,8 +44,7 @@ func main() {
 		goto setProdName
 	}
 
-
-	setCount:
+setCount:
 	fmt.Print("Enter count: ")
 	fmt.Scanf("%s\n", &product.Count)
 	if strings.ContainsAny(product.Count, "abcdefghiklmnopqrstvxyz") || strings.ContainsAny(product.Count, "ABCDEFGHIKLMNOPQRSTVXYZ") {
@@ -64,15 +62,13 @@ func main() {
 		product.Count = ""
 		goto setCount
 	}
-	if len(product.Count) == 1 && strings.ContainsAny(product.Count, "0"){
+	if len(product.Count) == 1 && strings.ContainsAny(product.Count, "0") {
 		fmt.Println("Invalid value! It`s shouldn`t be 0")
 		product.Count = ""
 		goto setCount
 	}
 
-
-
-	setUserName:
+setUserName:
 	fmt.Print("Enter your name: ")
 	fmt.Scanf("%s\n", &product.Person.Name)
 	if strings.ContainsAny(product.Person.Name, "0123456789") {
@@ -91,8 +87,7 @@ func main() {
 		goto setUserName
 	}
 
-
-	setSurname:
+setSurname:
 	fmt.Print("Enter your surname: ")
 	fmt.Scanf("%s\n", &product.Person.Surname)
 	if strings.ContainsAny(product.Person.Surname, "0123456789") {
@@ -111,8 +106,7 @@ func main() {
 		goto setSurname
 	}
 
-
-	setPatronymic:
+setPatronymic:
 	fmt.Print("Enter your patronymic: ")
 	fmt.Scanf("%s\n", &product.Person.Patronymic)
 	if strings.ContainsAny(product.Person.Patronymic, "0123456789") {
@@ -131,8 +125,7 @@ func main() {
 		goto setPatronymic
 	}
 
-
-	setPhone:
+setPhone:
 	fmt.Print("Enter your phone number: ")
 	fmt.Scanf("%s\n", &product.Person.Phone)
 	if strings.ContainsAny(product.Person.Phone, "abcdefghiklmnopqrstvxyz") ||
@@ -152,8 +145,7 @@ func main() {
 		goto setPhone
 	}
 
-
-	setIndex:
+setIndex:
 	fmt.Print("Enter your index: ")
 	fmt.Scanf("%s\n", &product.Person.Address.Index)
 	if len(product.Person.Address.Index) > 6 {
@@ -178,8 +170,7 @@ func main() {
 		goto setIndex
 	}
 
-
-	setCity:
+setCity:
 	fmt.Print("Enter your city: ")
 	fmt.Scanf("%s\n", &product.Person.Address.City)
 	if strings.ContainsAny(product.Person.Address.City, "0123456789") {
@@ -198,8 +189,7 @@ func main() {
 		goto setCity
 	}
 
-
-	setStreet:
+setStreet:
 	fmt.Print("Enter your street: ")
 	fmt.Scanf("%s\n", &product.Person.Address.Street)
 	if strings.ContainsAny(product.Person.Address.Street, "0123456789") {
@@ -218,8 +208,7 @@ func main() {
 		goto setStreet
 	}
 
-
-	setHouse:
+setHouse:
 	fmt.Print("Enter your house: ")
 	fmt.Scanf("%s\n", &product.Person.Address.House)
 	if len(product.Person.Address.House) == 0 {
@@ -233,8 +222,7 @@ func main() {
 		goto setHouse
 	}
 
-
-	setFlat:
+setFlat:
 	fmt.Print("Enter your flat: ")
 	fmt.Scanf("%s\n", &product.Person.Address.Flat)
 	if strings.ContainsAny(product.Person.Address.Flat, "abcdefghiklmnopqrstvxyz") ||
@@ -254,8 +242,6 @@ func main() {
 		goto setFlat
 	}
 
-
-
 	fmt.Println()
 	fmt.Println("__________________________________________")
 	fmt.Println()
@@ -268,4 +254,5 @@ func main() {
 	fmt.Println("Your address: ", product.Person.Address.Index, " ", product.Person.Address.City, " ", product.Person.Address.Street, " ", product.Person.Address.House, " ", product.Person.Address.Flat)
 	fmt.Println()
 	fmt.Println("__________________________________________")
+	fmt.Println()
 }
