@@ -1,0 +1,91 @@
+package main
+
+import (
+	"fmt"
+	"os"
+	"sort"
+)
+
+func m1t1() {
+	var dist, flow float64
+	const cost = 48
+	fmt.Print("Enter distance from 50 to 10000 km: ")
+	fmt.Scanf("%f\n", &dist)
+	if dist < 50 || dist > 10000 {
+		fmt.Println("Enter correct value!!!")
+		os.Exit(1)
+	}
+	fmt.Print("Enter flow per 100km from 5 to 25: ")
+	fmt.Scanf("%f\n", &flow)
+	if flow < 5 || flow > 25 {
+		fmt.Println("Enter correct value!!!")
+		os.Exit(1)
+	}
+
+	fmt.Printf("Cost: %.2f\n", flow/100*dist*cost)
+}
+
+func m1t2() {
+	var word int
+	fmt.Print("Enter your word to reverse: ")
+	fmt.Scanf("%d/n", &word)
+	if word < 100 || word > 999{
+		fmt.Println("Enter correct value!!!")
+		os.Exit(1)
+	}
+	reverse := 0
+	for word > 0{
+		reminder := word % 10
+		reverse = (reverse*10) + reminder
+		word /= 10
+	}
+
+
+	fmt.Println("New word: ", reverse)
+}
+
+func m2t1(){
+	var num1, num2, num3 int
+	var array []int
+	fmt.Println("Enter first number: ")
+	fmt.Scanf("%d\n", &num1)
+	fmt.Println("Enter second number: ")
+	fmt.Scanf("%d\n", &num2)
+	fmt.Println("Enter third number: ")
+	fmt.Scanf("%d\n", &num3)
+
+	array = append(array, num1, num2, num3)
+	sort.Ints(array)
+	fmt.Println(array)
+
+}
+
+func m2t2(){
+	var number int
+	fmt.Print("Enter your number: ")
+	fmt.Scanf("%d/n", &number)
+	oldNum := number
+	if number < 1000 || number > 9999{
+		fmt.Println("Enter correct value!!!")
+		os.Exit(1)
+	}
+	reverse := 0
+	for number > 0{
+		reminder := number % 10
+		reverse = (reverse*10) + reminder
+		number /= 10
+	}
+
+	if oldNum == reverse {
+		fmt.Println("Is palindrome!")
+	} else {
+		fmt.Println("Is not palindrome")
+	}
+}
+
+func main() {
+	m1t1()
+	m1t2()
+	m2t1()
+	m2t2()
+}
