@@ -29,218 +29,275 @@ type Address struct {
 
 func main() {
 
-setProdName:
 	product := Product{}
-	fmt.Print("Enter the product name: ")
-	fmt.Scanf("%s\n", &product.ProductName)
-	if len(product.ProductName) < 1 || len(product.ProductName) > 100 {
-		fmt.Println("Invalid product name!!! It`s shouldn`t be over 100 and less 1 symbols.")
-		product.ProductName = ""
-		goto setProdName
-	}
-	if strings.ContainsAny(product.ProductName, "_!@#$%^&") {
-		fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
-		product.ProductName = ""
-		goto setProdName
+
+	for i := 0; i < 1; i++{
+
+		fmt.Print("Enter the product name: ")
+		fmt.Scanf("%s\n", &product.ProductName)
+		if len(product.ProductName) < 1 || len(product.ProductName) > 100 {
+			fmt.Println("Invalid product name!!! It`s shouldn`t be over 100 and less 1 symbols.")
+			product.ProductName = ""
+			i--
+			continue
+		}
+		if strings.ContainsAny(product.ProductName, "_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+			product.ProductName = ""
+			i--
+			continue
+		}
+
 	}
 
-setCount:
-	fmt.Print("Enter count: ")
-	fmt.Scanf("%s\n", &product.Count)
-	if strings.ContainsAny(product.Count, "abcdefghiklmnopqrstvxyz") || strings.ContainsAny(product.Count, "ABCDEFGHIKLMNOPQRSTVXYZ") {
-		fmt.Println("Invalid count! It`s should contain only digits.")
-		product.Count = ""
-		goto setCount
-	}
-	if len(product.Count) == 0 {
-		fmt.Println("Folder shouldn`t be empty!")
-		product.Count = ""
-		goto setCount
-	}
-	if strings.ContainsAny(product.Count, "_!@#$%^&") {
-		fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
-		product.Count = ""
-		goto setCount
-	}
-	if len(product.Count) == 1 && strings.ContainsAny(product.Count, "0") {
-		fmt.Println("Invalid value! It`s shouldn`t be 0")
-		product.Count = ""
-		goto setCount
+
+	for i := 0; i < 1; i++{
+		fmt.Print("Enter count: ")
+		fmt.Scanf("%s\n", &product.Count)
+		if strings.ContainsAny(product.Count, "abcdefghiklmnopqrstvxyz") || strings.ContainsAny(product.Count, "ABCDEFGHIKLMNOPQRSTVXYZ") {
+			fmt.Println("Invalid count! It`s should contain only digits.")
+			product.Count = ""
+			i--
+			continue
+		}
+		if len(product.Count) == 0 {
+			fmt.Println("Folder shouldn`t be empty!")
+			product.Count = ""
+			i--
+			continue
+		}
+		if strings.ContainsAny(product.Count, "_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+			product.Count = ""
+			i--
+			continue
+		}
+		if len(product.Count) == 1 && strings.ContainsAny(product.Count, "0") {
+			fmt.Println("Invalid value! It`s shouldn`t be 0")
+			product.Count = ""
+			i--
+			continue
+		}
 	}
 
-setUserName:
-	fmt.Print("Enter your name: ")
-	fmt.Scanf("%s\n", &product.Person.Name)
-	if strings.ContainsAny(product.Person.Name, "0123456789") {
-		fmt.Println("Invalid name! It`s shouldn`t contain digits.")
-		product.Person.Name = ""
-		goto setUserName
-	}
-	if len(product.Person.Name) == 0 {
-		fmt.Println("Folder shouldn`t be empty!")
-		product.Person.Name = ""
-		goto setUserName
-	}
-	if strings.ContainsAny(product.Person.Name, "_!@#$%^&") {
-		fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
-		product.Person.Name = ""
-		goto setUserName
+
+	for i := 0; i < 1; i++{
+		fmt.Print("Enter your name: ")
+		fmt.Scanf("%s\n", &product.Person.Name)
+		if strings.ContainsAny(product.Person.Name, "0123456789") {
+			fmt.Println("Invalid name! It`s shouldn`t contain digits.")
+			product.Person.Name = ""
+			i--
+			continue
+		}
+		if len(product.Person.Name) == 0 {
+			fmt.Println("Folder shouldn`t be empty!")
+			product.Person.Name = ""
+			i--
+			continue
+		}
+		if strings.ContainsAny(product.Person.Name, "_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+			product.Person.Name = ""
+			i--
+			continue
+		}
 	}
 
-setSurname:
-	fmt.Print("Enter your surname: ")
-	fmt.Scanf("%s\n", &product.Person.Surname)
-	if strings.ContainsAny(product.Person.Surname, "0123456789") {
-		fmt.Println("Invalid surname! It`s shouldn`t contain digits.")
-		product.Person.Surname = ""
-		goto setSurname
-	}
-	if len(product.Person.Surname) == 0 {
-		fmt.Println("Folder shouldn`t be empty!")
-		product.Person.Surname = ""
-		goto setSurname
-	}
-	if strings.ContainsAny(product.Person.Surname, "_!@#$%^&") {
-		fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
-		product.Person.Surname = ""
-		goto setSurname
+
+	for i := 0; i < 1; i++{
+		fmt.Print("Enter your surname: ")
+		fmt.Scanf("%s\n", &product.Person.Surname)
+		if strings.ContainsAny(product.Person.Surname, "0123456789") {
+			fmt.Println("Invalid surname! It`s shouldn`t contain digits.")
+			product.Person.Surname = ""
+			i--
+			continue
+		}
+		if len(product.Person.Surname) == 0 {
+			fmt.Println("Folder shouldn`t be empty!")
+			product.Person.Surname = ""
+			i--
+			continue
+		}
+		if strings.ContainsAny(product.Person.Surname, "_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+			product.Person.Surname = ""
+			i--
+			continue
+		}
 	}
 
-setPatronymic:
-	fmt.Print("Enter your patronymic: ")
-	fmt.Scanf("%s\n", &product.Person.Patronymic)
-	if strings.ContainsAny(product.Person.Patronymic, "0123456789") {
-		fmt.Println("Invalid patronymic! It`s shouldn`t contain digits.")
-		product.Person.Patronymic = ""
-		goto setPatronymic
-	}
-	if len(product.Person.Patronymic) == 0 {
-		fmt.Println("Folder shouldn`t be empty!")
-		product.Person.Patronymic = ""
-		goto setPatronymic
-	}
-	if strings.ContainsAny(product.Person.Patronymic, "_!@#$%^&") {
-		fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
-		product.Person.Patronymic = ""
-		goto setPatronymic
+
+	for i := 0; i < 1; i++{
+		fmt.Print("Enter your patronymic: ")
+		fmt.Scanf("%s\n", &product.Person.Patronymic)
+		if strings.ContainsAny(product.Person.Patronymic, "0123456789") {
+			fmt.Println("Invalid patronymic! It`s shouldn`t contain digits.")
+			product.Person.Patronymic = ""
+			i--
+			continue
+		}
+		if len(product.Person.Patronymic) == 0 {
+			fmt.Println("Folder shouldn`t be empty!")
+			product.Person.Patronymic = ""
+			i--
+			continue
+		}
+		if strings.ContainsAny(product.Person.Patronymic, "_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+			product.Person.Patronymic = ""
+			i--
+			continue
+		}
 	}
 
-setPhone:
-	fmt.Print("Enter your phone number: ")
-	fmt.Scanf("%s\n", &product.Person.Phone)
-	if strings.ContainsAny(product.Person.Phone, "abcdefghiklmnopqrstvxyz") ||
-		strings.ContainsAny(product.Person.Phone, "ABCDEFGHIKLMNOPQRSTVXYZ") {
-		fmt.Println("Invalid phone number!  It`s should contain only digits.")
-		product.Person.Phone = ""
-		goto setPhone
-	}
-	if len(product.Person.Phone) == 0 {
-		fmt.Println("Folder shouldn`t be empty!")
-		product.Person.Phone = ""
-		goto setPhone
-	}
-	if strings.ContainsAny(product.Person.Phone, "_!@#$%^&") {
-		fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
-		product.Person.Phone = ""
-		goto setPhone
+
+	for i := 0; i < 1; i++{
+		fmt.Print("Enter your phone number: ")
+		fmt.Scanf("%s\n", &product.Person.Phone)
+		if strings.ContainsAny(product.Person.Phone, "abcdefghiklmnopqrstvxyz") ||
+			strings.ContainsAny(product.Person.Phone, "ABCDEFGHIKLMNOPQRSTVXYZ") {
+			fmt.Println("Invalid phone number!  It`s should contain only digits.")
+			product.Person.Phone = ""
+			i--
+			continue
+		}
+		if len(product.Person.Phone) == 0 {
+			fmt.Println("Folder shouldn`t be empty!")
+			product.Person.Phone = ""
+			i--
+			continue
+		}
+		if strings.ContainsAny(product.Person.Phone, "_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+			product.Person.Phone = ""
+			i--
+			continue
+		}
 	}
 
-setIndex:
-	fmt.Print("Enter your index: ")
-	fmt.Scanf("%s\n", &product.Person.Address.Index)
-	if len(product.Person.Address.Index) > 6 {
-		fmt.Println("Invalid index! It`s shouldn`t be over 6 numbers.")
-		product.Person.Address.Index = ""
-		goto setIndex
-	}
-	if len(product.Person.Address.Index) == 0 {
-		fmt.Println("Folder shouldn`t be empty!")
-		product.Person.Address.Index = ""
-		goto setIndex
-	}
-	if strings.ContainsAny(product.Person.Address.Index, "abcdefghiklmnopqrstvxyz") ||
-		strings.ContainsAny(product.Person.Address.Index, "ABCDEFGHIKLMNOPQRSTVXYZ") {
-		fmt.Println("Invalid index!  It`s should contain only digits.")
-		product.Person.Address.Index = ""
-		goto setIndex
-	}
-	if strings.ContainsAny(product.Person.Address.Index, "_!@#$%^&") {
-		fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
-		product.Person.Address.Index = ""
-		goto setIndex
+
+	for i := 0; i < 1; i++{
+		fmt.Print("Enter your index: ")
+		fmt.Scanf("%s\n", &product.Person.Address.Index)
+		if len(product.Person.Address.Index) > 6 {
+			fmt.Println("Invalid index! It`s shouldn`t be over 6 numbers.")
+			product.Person.Address.Index = ""
+			i--
+			continue
+		}
+		if len(product.Person.Address.Index) == 0 {
+			fmt.Println("Folder shouldn`t be empty!")
+			product.Person.Address.Index = ""
+			i--
+			continue
+		}
+		if strings.ContainsAny(product.Person.Address.Index, "abcdefghiklmnopqrstvxyz") ||
+			strings.ContainsAny(product.Person.Address.Index, "ABCDEFGHIKLMNOPQRSTVXYZ") {
+			fmt.Println("Invalid index!  It`s should contain only digits.")
+			product.Person.Address.Index = ""
+			i--
+			continue
+		}
+		if strings.ContainsAny(product.Person.Address.Index, "_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+			product.Person.Address.Index = ""
+			i--
+			continue
+		}
 	}
 
-setCity:
-	fmt.Print("Enter your city: ")
-	fmt.Scanf("%s\n", &product.Person.Address.City)
-	if strings.ContainsAny(product.Person.Address.City, "0123456789") {
-		fmt.Println("Invalid city! It`s shouldn`t contain digits.")
-		product.Person.Address.City = ""
-		goto setCity
-	}
-	if len(product.Person.Address.City) == 0 {
-		fmt.Println("Folder shouldn`t be empty!")
-		product.Person.Address.City = ""
-		goto setCity
-	}
-	if strings.ContainsAny(product.Person.Address.City, "_!@#$%^&") {
-		fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
-		product.Person.Address.City = ""
-		goto setCity
+
+	for i := 0; i < 1; i++{
+		fmt.Print("Enter your city: ")
+		fmt.Scanf("%s\n", &product.Person.Address.City)
+		if strings.ContainsAny(product.Person.Address.City, "0123456789") {
+			fmt.Println("Invalid city! It`s shouldn`t contain digits.")
+			product.Person.Address.City = ""
+			i--
+			continue
+		}
+		if len(product.Person.Address.City) == 0 {
+			fmt.Println("Folder shouldn`t be empty!")
+			product.Person.Address.City = ""
+			i--
+			continue
+		}
+		if strings.ContainsAny(product.Person.Address.City, "_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+			product.Person.Address.City = ""
+			i--
+			continue
+		}
 	}
 
-setStreet:
-	fmt.Print("Enter your street: ")
-	fmt.Scanf("%s\n", &product.Person.Address.Street)
-	if strings.ContainsAny(product.Person.Address.Street, "0123456789") {
-		fmt.Println("Invalid street!  It`s shouldn`t contain digits.")
-		product.Person.Address.Street = ""
-		goto setStreet
-	}
-	if len(product.Person.Address.Street) == 0 {
-		fmt.Println("Folder shouldn`t be empty!")
-		product.Person.Address.Street = ""
-		goto setStreet
-	}
-	if strings.ContainsAny(product.Person.Address.Street, "_!@#$%^&") {
-		fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
-		product.Person.Address.Street = ""
-		goto setStreet
+
+	for i := 0; i < 1; i++{
+		fmt.Print("Enter your street: ")
+		fmt.Scanf("%s\n", &product.Person.Address.Street)
+		if strings.ContainsAny(product.Person.Address.Street, "0123456789") {
+			fmt.Println("Invalid street!  It`s shouldn`t contain digits.")
+			product.Person.Address.Street = ""
+			i--
+			continue
+		}
+		if len(product.Person.Address.Street) == 0 {
+			fmt.Println("Folder shouldn`t be empty!")
+			product.Person.Address.Street = ""
+			i--
+			continue
+		}
+		if strings.ContainsAny(product.Person.Address.Street, "_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+			product.Person.Address.Street = ""
+			i--
+			continue
+		}
 	}
 
-setHouse:
-	fmt.Print("Enter your house: ")
-	fmt.Scanf("%s\n", &product.Person.Address.House)
-	if len(product.Person.Address.House) == 0 {
-		fmt.Println("Folder shouldn`t be empty!")
-		product.Person.Address.House = ""
-		goto setHouse
-	}
-	if strings.ContainsAny(product.Person.Address.House, "_!@#$%^&") {
-		fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
-		product.Person.Address.House = ""
-		goto setHouse
+
+	for i := 0; i < 1; i++{
+		fmt.Print("Enter your house: ")
+		fmt.Scanf("%s\n", &product.Person.Address.House)
+		if len(product.Person.Address.House) == 0 {
+			fmt.Println("Folder shouldn`t be empty!")
+			product.Person.Address.House = ""
+			i--
+			continue
+		}
+		if strings.ContainsAny(product.Person.Address.House, "_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+			product.Person.Address.House = ""
+			i--
+			continue
+		}
 	}
 
-setFlat:
-	fmt.Print("Enter your flat: ")
-	fmt.Scanf("%s\n", &product.Person.Address.Flat)
-	if strings.ContainsAny(product.Person.Address.Flat, "abcdefghiklmnopqrstvxyz") ||
-		strings.ContainsAny(product.Person.Address.Flat, "ABCDEFGHIKLMNOPQRSTVXYZ") {
-		fmt.Println("Invalid flat!  It`s shouldn`t contain digits.")
-		product.Person.Address.Flat = ""
-		goto setFlat
+	for i := 0; i < 1; i++{
+		fmt.Print("Enter your flat: ")
+		fmt.Scanf("%s\n", &product.Person.Address.Flat)
+		if strings.ContainsAny(product.Person.Address.Flat, "abcdefghiklmnopqrstvxyz") ||
+			strings.ContainsAny(product.Person.Address.Flat, "ABCDEFGHIKLMNOPQRSTVXYZ") {
+			fmt.Println("Invalid flat!  It`s shouldn`t contain digits.")
+			product.Person.Address.Flat = ""
+			i--
+			continue
+		}
+		if len(product.Person.Address.Flat) == 0 {
+			fmt.Println("Folder shouldn`t be empty!")
+			product.Person.Address.Flat = ""
+			i--
+			continue
+		}
+		if strings.ContainsAny(product.Person.Address.Flat, "_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+			product.Person.Address.Flat = ""
+			i--
+			continue
+		}
 	}
-	if len(product.Person.Address.Flat) == 0 {
-		fmt.Println("Folder shouldn`t be empty!")
-		product.Person.Address.Flat = ""
-		goto setFlat
-	}
-	if strings.ContainsAny(product.Person.Address.Flat, "_!@#$%^&") {
-		fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
-		product.Person.Address.Flat = ""
-		goto setFlat
-	}
+
 
 	fmt.Println()
 	fmt.Println("__________________________________________")
