@@ -8,10 +8,9 @@ import (
 	"strings"
 )
 
-var str string
-var attempts = 5
-
 func codeToString(code string) string {
+
+	var str string
 
 	keys := make(map[string]string)
 	keys["00"] = "a"
@@ -60,8 +59,9 @@ func codeToString(code string) string {
 	return str
 }
 
-func enterPassword() string {
+func enterPassword() (string, int) {
 	var password string
+	var attempts = 5
 
 	if attempts > 0 {
 		fmt.Println("Enter your password. You have ", attempts, " more attempts.")
@@ -71,10 +71,10 @@ func enterPassword() string {
 		fmt.Println("You have no more attempts!!!")
 		os.Exit(1)
 	}
-	return password
+	return password, attempts
 }
 
-func checkPassword(password string) {
+func checkPassword(password string, attempts int) {
 
 	const digits = "0123456789"
 	const lowercase = "abcdefghiklmnopqrstvxyz"
