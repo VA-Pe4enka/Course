@@ -1,0 +1,14 @@
+GET http://127.0.0.1:4000/task/
+
+###
+POST http://127.0.0.1:4000/task/
+content-type: application/json
+
+{
+    "text": "sample",
+    "tags": ["test", "work"],
+    "due": "2021-09-12T10:04:05+00:00"
+}
+
+###
+GET http://127.0.0.1:4000/task/

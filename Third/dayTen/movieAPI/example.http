@@ -1,0 +1,33 @@
+curl -X POST \
+http://localhost:8000/v1/movies \
+-H 'cache-control: no-cache' \
+-H 'content-type: application/json' \
+-d '{ "name" : "First movie", "year" : "2021", "directors" : [
+"Semen Smirnov" ], "writers" : [ "Aleksey Alekseev", "Mikhail Mikhailov" ], 
+"boxOffice" : { "budget" : 185000, "gross" : 466000}
+}'
+
+###
+GET http://localhost:8000/v1/movies/61573c540b524ab12f666070
+
+###
+curl -X GET \
+http://localhost:8000/v1/movies/61573c540b524ab12f666070
+
+###
+curl -X PUT \
+http://localhost:8000/v1/movies/61573c540b524ab12f666070 \
+-H 'cache-control: no-cache' \
+-H 'content-type: application/json' \
+-d '{"name": "First movie changed", "year": "2022", "directors" : ["Semen Smirnov" ], "writers" : [ "Aleksey Alekseev", "Mikhail Mikhailov" ], 
+"boxOffice" : {"budget" : 285000, "gross" : 100000}}'
+
+###
+curl -X PUT \
+http://localhost:8000/v1/movies/61573c540b524ab12f666070 \
+-H 'cache-control: no-cache' \
+-H 'content-type: application/json' \
+-d '{"name": "First movie changed"}'
+
+###
+DELETE http://localhost:8000/v1/movies/615738fa0cbe379f643c122b

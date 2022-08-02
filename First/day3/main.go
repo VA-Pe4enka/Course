@@ -8,6 +8,8 @@ import (
 	"strings"
 )
 
+var attempts = 5
+
 func codeToString(code string) string {
 
 	var str string
@@ -61,7 +63,6 @@ func codeToString(code string) string {
 
 func enterPassword() (string, int) {
 	var password string
-	var attempts = 5
 
 	if attempts > 0 {
 		fmt.Println("Enter your password. You have ", attempts, " more attempts.")

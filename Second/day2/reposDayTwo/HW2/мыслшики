@@ -1,0 +1,187 @@
+package main
+
+import (
+	"context"
+	"fmt"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
+	"log"
+	"os"
+	"time"
+)
+
+var ScheduleCollection *mongo.Collection
+var StationCollection *mongo.Collection
+var ctx = context.TODO()
+
+func init() {
+	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb+srv://Pe4enka:GotIt1488@cluster0.ewt1q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"))
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = client.Connect(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = client.Ping(ctx, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Connected to MongoDB!")
+
+	ScheduleCollection = client.Database("Cluster0").Collection("schedules")
+	StationCollection = client.Database("Cluster0").Collection("stations")
+}
+
+
+func getPerson(id string) Person {
+	var result Person
+
+	filter := bson.D{{"id", id}}
+	err := collection.FindOne(context.TODO(), filter).Decode(&result)
+	if err != nil {
+	}
+
+	return result
+}
+
+func addPerson() {
+	result := createPerson()
+
+	insertResult, err := collection.InsertOne(context.TODO(), result)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Inserted a single document: ", insertResult.InsertedID)
+}
+
+func createPerson() Person {
+
+	var card Person
+
+	fmt.Print("Enter person id: ")
+	fmt.Fscan(os.Stdin, &card.ID)
+	fmt.Println()
+	fmt.Print("Enter person full name: ")
+	fmt.Fscan(os.Stdin, &card.FIO)
+	fmt.Println()
+	fmt.Print("Enter person department: ")
+	fmt.Fscan(os.Stdin, &card.DEPARTMENT)
+	fmt.Println()
+	fmt.Print("Enter person position: ")
+	fmt.Fscan(os.Stdin, &card.POSITION)
+	fmt.Println()
+	card.WORKTIME = 0
+
+	fmt.Println(card)
+
+	return card
+}
+
+func connectToTimeDB() {
+	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb+srv://Pe4enka:GotIt1488@cluster0.ewt1q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"))
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = client.Connect(context.TODO())
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = client.Ping(context.TODO(), nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Connected to MongoDB!")
+
+	collection = client.Database("Cluster0").Collection("time")
+
+}
+
+func createNote(id string) Note {
+	var note Note
+
+	note.ID = id
+	note.StartTime = time.Now()
+
+	insertResult, err := collection.InsertOne(context.TODO(), note)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Inserted a single document: ", insertResult.InsertedID)
+
+	return note
+}
+
+func saveNote(id string) Note{
+	var note Note
+
+	filter := bson.D{{"id", id}}
+	err := collection.FindOne(context.TODO(), filter).Decode(&note)
+	if err != nil {
+	}
+
+	filter = bson.D{{"id", id}}
+	deleteResult, err := collection.DeleteOne(context.TODO(), filter)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Deleted %v documents in the trainers collection\n", deleteResult.DeletedCount)
+
+
+	note.EndTime = time.Now()
+
+	note.Result = int(note.EndTime.Sub(note.StartTime) / time.Minute)
+
+	insertResult, err := collection.InsertOne(context.TODO(), note)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Inserted a single document: ", insertResult.InsertedID)
+
+	return note
+}
+
+func updatePerson(id string){
+	var note Note
+	var person Person
+
+	filter := bson.D{{"id", id}}
+	err := collection.FindOne(context.TODO(), filter).Decode(&person)
+	if err != nil {
+	}
+	filter = bson.D{{"id", id}}
+	err = collection.FindOne(context.TODO(), filter).Decode(&note)
+	if err != nil {
+	}
+
+	person.WORKTIME =+ note.Result
+
+	insertResult, err := collection.InsertOne(context.TODO(), person)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("Inserted a single document: ", insertResult.InsertedID)
+
+}
+
+func disconnect(){
+	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb+srv://Pe4enka:GotIt1488@cluster0.ewt1q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"))
+
+	err = client.Disconnect(context.TODO())
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Connection to MongoDB closed.")
+}

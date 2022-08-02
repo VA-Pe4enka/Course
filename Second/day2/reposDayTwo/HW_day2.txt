@@ -1,0 +1,14 @@
+Вариант 1
+Реализовать методы POST, GET, DELETE для Station и Schedule
+
+Вариант 2
+Нужно реализовать сервис для учета времени сотрудников на рабочем месте.
+ID, FIO, DEPARTMENT, POSITION
+
+In(Пришел)  -> Datetime
+Out(Ушел)   -> Datetime
+
+GET EMPLOYEE
+POST EMPLOYEE
+
+GET ALLTIME(day or month) выдать сколько времени провел на рабочем месте за указанный период времени.

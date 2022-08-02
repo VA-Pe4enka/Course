@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -31,7 +32,7 @@ func main() {
 
 	product := Product{}
 
-	for i := 0; i < 1; i++{
+	for i := 0; i < 1; i++ {
 
 		fmt.Print("Enter the product name: ")
 		fmt.Scanf("%s\n", &product.ProductName)
@@ -50,8 +51,7 @@ func main() {
 
 	}
 
-
-	for i := 0; i < 1; i++{
+	for i := 0; i < 1; i++ {
 		fmt.Print("Enter count: ")
 		fmt.Scanf("%s\n", &product.Count)
 		if strings.ContainsAny(product.Count, "abcdefghiklmnopqrstvxyz") || strings.ContainsAny(product.Count, "ABCDEFGHIKLMNOPQRSTVXYZ") {
@@ -72,16 +72,15 @@ func main() {
 			i--
 			continue
 		}
-		if len(product.Count) == 1 && strings.ContainsAny(product.Count, "0") {
-			fmt.Println("Invalid value! It`s shouldn`t be 0")
+		if s, err := strconv.ParseInt(product.Count, 10, 32); s <= 0 && err == nil {
+			fmt.Println("Invalid value! It`s shouldn`t be 0 or less")
 			product.Count = ""
 			i--
 			continue
 		}
 	}
 
-
-	for i := 0; i < 1; i++{
+	for i := 0; i < 1; i++ {
 		fmt.Print("Enter your name: ")
 		fmt.Scanf("%s\n", &product.Person.Name)
 		if strings.ContainsAny(product.Person.Name, "0123456789") {
@@ -104,8 +103,7 @@ func main() {
 		}
 	}
 
-
-	for i := 0; i < 1; i++{
+	for i := 0; i < 1; i++ {
 		fmt.Print("Enter your surname: ")
 		fmt.Scanf("%s\n", &product.Person.Surname)
 		if strings.ContainsAny(product.Person.Surname, "0123456789") {
@@ -128,8 +126,7 @@ func main() {
 		}
 	}
 
-
-	for i := 0; i < 1; i++{
+	for i := 0; i < 1; i++ {
 		fmt.Print("Enter your patronymic: ")
 		fmt.Scanf("%s\n", &product.Person.Patronymic)
 		if strings.ContainsAny(product.Person.Patronymic, "0123456789") {
@@ -144,16 +141,15 @@ func main() {
 			i--
 			continue
 		}
-		if strings.ContainsAny(product.Person.Patronymic, "_!@#$%^&") {
-			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+		if strings.ContainsAny(product.Person.Patronymic, "-_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of -_!@#$%^&")
 			product.Person.Patronymic = ""
 			i--
 			continue
 		}
 	}
 
-
-	for i := 0; i < 1; i++{
+	for i := 0; i < 1; i++ {
 		fmt.Print("Enter your phone number: ")
 		fmt.Scanf("%s\n", &product.Person.Phone)
 		if strings.ContainsAny(product.Person.Phone, "abcdefghiklmnopqrstvxyz") ||
@@ -177,8 +173,7 @@ func main() {
 		}
 	}
 
-
-	for i := 0; i < 1; i++{
+	for i := 0; i < 1; i++ {
 		fmt.Print("Enter your index: ")
 		fmt.Scanf("%s\n", &product.Person.Address.Index)
 		if len(product.Person.Address.Index) > 6 {
@@ -200,16 +195,15 @@ func main() {
 			i--
 			continue
 		}
-		if strings.ContainsAny(product.Person.Address.Index, "_!@#$%^&") {
-			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+		if strings.ContainsAny(product.Person.Address.Index, "-_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of -_!@#$%^&")
 			product.Person.Address.Index = ""
 			i--
 			continue
 		}
 	}
 
-
-	for i := 0; i < 1; i++{
+	for i := 0; i < 1; i++ {
 		fmt.Print("Enter your city: ")
 		fmt.Scanf("%s\n", &product.Person.Address.City)
 		if strings.ContainsAny(product.Person.Address.City, "0123456789") {
@@ -232,8 +226,7 @@ func main() {
 		}
 	}
 
-
-	for i := 0; i < 1; i++{
+	for i := 0; i < 1; i++ {
 		fmt.Print("Enter your street: ")
 		fmt.Scanf("%s\n", &product.Person.Address.Street)
 		if strings.ContainsAny(product.Person.Address.Street, "0123456789") {
@@ -256,8 +249,7 @@ func main() {
 		}
 	}
 
-
-	for i := 0; i < 1; i++{
+	for i := 0; i < 1; i++ {
 		fmt.Print("Enter your house: ")
 		fmt.Scanf("%s\n", &product.Person.Address.House)
 		if len(product.Person.Address.House) == 0 {
@@ -266,15 +258,15 @@ func main() {
 			i--
 			continue
 		}
-		if strings.ContainsAny(product.Person.Address.House, "_!@#$%^&") {
-			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+		if strings.ContainsAny(product.Person.Address.House, "-_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of -_!@#$%^&")
 			product.Person.Address.House = ""
 			i--
 			continue
 		}
 	}
 
-	for i := 0; i < 1; i++{
+	for i := 0; i < 1; i++ {
 		fmt.Print("Enter your flat: ")
 		fmt.Scanf("%s\n", &product.Person.Address.Flat)
 		if strings.ContainsAny(product.Person.Address.Flat, "abcdefghiklmnopqrstvxyz") ||
@@ -290,14 +282,13 @@ func main() {
 			i--
 			continue
 		}
-		if strings.ContainsAny(product.Person.Address.Flat, "_!@#$%^&") {
-			fmt.Println("Invalid value! It`s shouldn`t contain any of _!@#$%^&")
+		if strings.ContainsAny(product.Person.Address.Flat, "-_!@#$%^&") {
+			fmt.Println("Invalid value! It`s shouldn`t contain any of -_!@#$%^&")
 			product.Person.Address.Flat = ""
 			i--
 			continue
 		}
 	}
-
 
 	fmt.Println()
 	fmt.Println("__________________________________________")

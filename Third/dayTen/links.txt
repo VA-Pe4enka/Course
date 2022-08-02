@@ -1,0 +1,5 @@
+﻿https://github.com/golang-standards/project-layout/blob/master/README_ru.md
+
+https://github.com/golangci/golangci-lint
+
+https://youtu.be/SNzOZKvFZ68 "Postgres vs Mongo / Олег Бартунов (Postgres Professional)" 

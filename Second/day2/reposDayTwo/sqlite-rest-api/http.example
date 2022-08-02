@@ -1,0 +1,13 @@
+GET http://localhost:8000/v1/trains/3
+
+###
+POST http://localhost:8000/v1/trains
+content-type: application/json
+
+{
+    "driverName": "Petr Ivanovich", 
+    "operatingStatus": true
+}
+###
+DELETE http://localhost:8000/v1/trains/3
+
