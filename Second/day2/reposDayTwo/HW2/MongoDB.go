@@ -16,7 +16,7 @@ var UsersCollection *mongo.Collection
 var ctx = context.TODO()
 
 func init() {
-	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb+srv://Pe4enka:GotIt1488@cluster0.ewt1q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"))
+	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb+srv://<username>:<password>@cluster0.ewt1q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"))
 	if err != nil {
 		log.Fatal(err)
 	}
