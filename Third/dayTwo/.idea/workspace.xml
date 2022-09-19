@@ -5,13 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b75e9c9d-2d20-4da1-aee7-6958105acb4d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../First/day3/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../First/day3/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../First/day4/Homework/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../First/day4/Homework/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Second/day2/reposDayTwo/HW1/MongoDB.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../Second/day2/reposDayTwo/HW1/MongoDB.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Second/day2/reposDayTwo/HW1/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Second/day2/reposDayTwo/HW1/go.sum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+        <option value="Go File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" url="file://$APPLICATION_HOME_DIR$/ROOT/go1.17.2" />
   <component name="Git.Settings">
@@ -27,6 +39,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -35,6 +50,7 @@
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
@@ -60,6 +76,21 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
